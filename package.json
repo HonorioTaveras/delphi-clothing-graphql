@@ -1,17 +1,20 @@
 {
   "name": "delphi-clothing",
   "version": "1.0.0",
-  "description": "",
+  "description": "An e-commerce web-application",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "react-dev": "webpack -d --watch",
+    "start": "nodemon server/index.js",
+    "server": "node server/index.js",
+    "test": "jest --coverage"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/HonorioTaveras/delphi-clothing.git"
   },
   "keywords": [],
-  "author": "",
+  "author": "Honorio Taveras",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/HonorioTaveras/delphi-clothing/issues"
@@ -54,5 +57,11 @@
     "style-loader": "^1.2.1",
     "webpack": "^4.44.2",
     "webpack-cli": "^3.3.12"
+  },
+  "jest": {
+    "moduleNameMapper": {
+      "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "<rootDir>/__mocks__/fileMock.js",
+      "\\.(css|less)$": "identity-obj-proxy"
+    }
   }
 }
