@@ -1,21 +1,19 @@
-/* eslint-disable import/extensions */
-import React, { Component } from 'react';
+import React from 'react';
+import { BrowserRouter as Switch, Route } from 'react-router-dom';
 
-import HomePage from '../../pages/Homepage/HomePage.jsx';
+// COMPONENTS
+import HomePage from '../../pages/Homepage/HomePage';
+import ShopPage from '../../pages/Shop/Shop';
 
 import './App.scss';
 
-export default class App extends Component {
-  constructor() {
-    super();
-    this.state = {};
-  }
-
-  render() {
-    return (
-      <div>
-        <HomePage />
-      </div>
-    );
-  }
+export default function App() {
+  return (
+    <div>
+      <Switch>
+        <Route path="/shop" component={ShopPage} />
+        <Route exact path="/" component={HomePage} />
+      </Switch>
+    </div>
+  );
 }
