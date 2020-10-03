@@ -1,6 +1,9 @@
+/* eslint-disable react/jsx-props-no-spreading */
 import React, { Component } from 'react';
 
 import shopData from './shopData';
+
+import CollectionPreview from '../../components/CollectionPreview/CollectionPreview';
 
 export default class ShopPage extends Component {
   constructor(props) {
@@ -11,8 +14,13 @@ export default class ShopPage extends Component {
   }
 
   render() {
+    const { collections } = this.state;
     return (
-      <div>SHOP PAGE</div>
+      <div className="shop-page">
+        {collections.map(({ id, ...otherCollectionProps }) => (
+          <CollectionPreview key={id} {...otherCollectionProps} />
+        ))}
+      </div>
     );
   }
 }
