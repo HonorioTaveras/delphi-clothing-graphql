@@ -1,23 +1,18 @@
-/* eslint-disable import/extensions */
-import React, { Component } from 'react';
-import { Switch, Route } from 'react-router-dom';
+import React from 'react';
+import { BrowserRouter as Switch, Route } from 'react-router-dom';
 
-import HomePage from '../../pages/Homepage/HomePage.jsx';
+// COMPONENTS
+import HomePage from '../../pages/Homepage/HomePage';
+import ShopPage from '../../pages/Shop/Shop';
 
 import './App.scss';
-
-const HatsPage = () => (
-  <div>
-    <h1>HATS PAGE</h1>
-  </div>
-);
 
 export default function App() {
   return (
     <div>
       <Switch>
+        <Route path="/shop" component={ShopPage} />
         <Route exact path="/" component={HomePage} />
-        <Route path="/hats" component={HatsPage} />
       </Switch>
     </div>
   );

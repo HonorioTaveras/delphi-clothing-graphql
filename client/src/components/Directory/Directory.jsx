@@ -1,9 +1,8 @@
-/* eslint-disable import/extensions */
 /* eslint-disable react/jsx-props-no-spreading */
 import React, { Component } from 'react';
 
-import MenuItem from '../MenuItem/MenuItem.jsx';
-import DirectoryData from '../../directoryData.js';
+import MenuItem from '../MenuItem/MenuItem';
+import DirectoryData from './directoryData';
 import './Directory.scss';
 
 class Directory extends Component {
