@@ -18,6 +18,8 @@ app.use(cors());
 
 app.use(express.static('public'));
 
+app.use('/', router);
+
 // If we are being run directly, run the server.
 if (!module.parent) {
   app.listen(app.get('port'));
