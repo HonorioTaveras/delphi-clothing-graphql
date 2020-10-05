@@ -1,8 +1,9 @@
+/* eslint-disable jsx-a11y/label-has-associated-control */
 import React, { Component } from 'react';
 
 import './SignIn.scss';
 
-export default class SignIn extends Conponent {
+export default class SignIn extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -13,22 +14,21 @@ export default class SignIn extends Conponent {
 
   handleSubmit = (e) => {
     e.preventDefault();
-
     this.setState({
-      emaail: '',
+      email: '',
       password: '',
     });
-  }
+  };
 
   handleChange = (e) => {
     const { value, name } = e.target;
-
     this.setState({
-      [name]: value;
+      [name]: value,
     });
-  }
+  };
 
   render() {
+    const { email, password } = this.state;
     return (
       <div className="sign-in">
         <h2>I already have an account</h2>
@@ -38,7 +38,7 @@ export default class SignIn extends Conponent {
           <input
             name="email"
             type="email"
-            value={this.state.email}
+            value={email}
             onChange={this.handleChange}
             required
           />
@@ -46,7 +46,7 @@ export default class SignIn extends Conponent {
           <input
             name="password"
             type="password"
-            value={this.state.password}
+            value={password}
             onChange={this.handleChange}
             required
           />
