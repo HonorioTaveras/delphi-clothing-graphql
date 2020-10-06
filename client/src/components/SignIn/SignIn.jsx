@@ -1,6 +1,9 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
 import React, { Component } from 'react';
 
+import FormInput from '../FormInput/FormInput';
+import CustomButton from '../CustomButton/CustomButton';
+
 import './SignIn.scss';
 
 export default class SignIn extends Component {
@@ -35,24 +38,23 @@ export default class SignIn extends Component {
         <span>Sign in with your email and password</span>
 
         <form onSubmit={this.handleSubmit}>
-          <input
+          <FormInput
             name="email"
             type="email"
             value={email}
-            onChange={this.handleChange}
+            handleChange={this.handleChange}
+            label="email"
             required
           />
-          <label>Email</label>
-          <input
+          <FormInput
             name="password"
             type="password"
             value={password}
-            onChange={this.handleChange}
+            handleChange={this.handleChange}
+            label="password"
             required
           />
-          <label>Password</label>
-
-          <input type="submit" value="Submit Form" />
+          <CustomButton type="submit"> Sign in </CustomButton>
         </form>
       </div>
     );
