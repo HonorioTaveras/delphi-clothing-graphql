@@ -33,10 +33,11 @@ export default class App extends Component {
   }
 
   render() {
+    const { currentUser } = this.state;
     return (
       <Router>
         <div>
-          <Header />
+          <Header currentUser={currentUser} />
           <Switch>
             <Route exact path="/" component={HomePage} />
             <Route path="/shop" component={ShopPage} />
