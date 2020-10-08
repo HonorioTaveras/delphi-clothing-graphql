@@ -6,8 +6,8 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 // COMPONENTS
 import HomePage from '../../pages/Homepage/HomePage';
 import ShopPage from '../../pages/Shop/Shop';
-import Header from '../Header/Header';
 import SignInAndSignUp from '../../pages/SignInAndSignUp/SignInAndSignUp';
+import Header from '../Header/Header';
 import { auth, createUserProfileDocument } from '../../firebase/firebase.utils';
 
 import './App.scss';
@@ -33,11 +33,11 @@ export default class App extends Component {
               id: snapShot.id,
               ...snapShot.data(),
             },
-          });
+          }, () => console.log('state: ', this.state));
         });
-      } else {
-        this.setState({ currentUser: userAuth });
+        console.log('state: ', this.state);
       }
+      this.setState({ currentUser: userAuth });
     });
   }
 
