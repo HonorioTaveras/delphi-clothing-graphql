@@ -2,7 +2,12 @@
 /* eslint-disable no-console */
 /* eslint-disable react/no-unused-state */
 import React, { Component } from 'react';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Redirect,
+} from 'react-router-dom';
 import { connect } from 'react-redux';
 
 // COMPONENTS
@@ -43,6 +48,7 @@ class App extends Component {
   }
 
   render() {
+    const { currentUser } = this.props;
     return (
       <Router>
         <div>
@@ -50,7 +56,15 @@ class App extends Component {
           <Switch>
             <Route exact path="/" component={HomePage} />
             <Route path="/shop" component={ShopPage} />
-            <Route path="/signin" component={SignInAndSignUp} />
+            <Route
+              exact
+              path="/signin"
+              render={() => (currentUser ? (
+                <Redirect to="/" />
+              ) : (
+                <SignInAndSignUp />
+              ))}
+            />
           </Switch>
         </div>
       </Router>
@@ -58,8 +72,12 @@ class App extends Component {
   }
 }
 
+const mapStateToProps = ({ user }) => ({
+  currentUser: user.currentUser,
+});
+
 const mapDispatchToProps = (dispatch) => ({
   setCurrentUser: (user) => dispatch(setCurrentUser(user)),
 });
 
-export default connect(null, mapDispatchToProps)(App);
+export default connect(mapStateToProps, mapDispatchToProps)(App);
