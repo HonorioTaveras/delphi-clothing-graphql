@@ -1,6 +1,4 @@
 /* eslint-disable no-shadow */
-/* eslint-disable no-console */
-/* eslint-disable react/no-unused-state */
 import React, { Component } from 'react';
 import {
   BrowserRouter as Router,
@@ -52,7 +50,6 @@ class App extends Component {
   componentWillUnmount() {
     this.unsubscribeFromAuth();
   }
-
 
   render() {
     const { currentUser } = this.props;
