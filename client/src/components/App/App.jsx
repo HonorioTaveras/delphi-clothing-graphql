@@ -15,8 +15,12 @@ import { createStructuredSelector } from 'reselect';
 import HomePage from '../../pages/Homepage/HomePage';
 import ShopPage from '../../pages/Shop/Shop';
 import SignInAndSignUp from '../../pages/SignInAndSignUp/SignInAndSignUp';
+import CheckoutPage from '../Checkout/Checkout';
+
 import Header from '../Header/Header';
+
 import { auth, createUserProfileDocument } from '../../firebase/firebase.utils';
+
 import { setCurrentUser } from '../../redux/user/userActions';
 import { selectCurrentUser } from '../../redux/user/userSelectors';
 
@@ -49,6 +53,7 @@ class App extends Component {
     this.unsubscribeFromAuth();
   }
 
+
   render() {
     const { currentUser } = this.props;
     return (
@@ -58,6 +63,7 @@ class App extends Component {
           <Switch>
             <Route exact path="/" component={HomePage} />
             <Route path="/shop" component={ShopPage} />
+            <Route exact path="/checkout" component={CheckoutPage} />
             <Route
               exact
               path="/signin"
