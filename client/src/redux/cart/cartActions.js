@@ -1,4 +1,3 @@
-/* eslint-disable import/prefer-default-export */
 import CartActionTypes from './cartTypes';
 
 export const toggleCartHidden = () => ({
