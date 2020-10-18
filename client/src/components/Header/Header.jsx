@@ -19,7 +19,7 @@ import './Header.scss';
 const Header = ({ currentUser, hidden }) => (
   <div className="header">
     <Link className="logo-container" to="/">
-      <img className="logo" src={Logo} alt="logo" />
+      <img className="logo" src={`/${Logo}`} alt="logo" />
     </Link>
     <div className="options">
       <Link className="option" to="/shop">
