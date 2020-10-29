@@ -13,7 +13,7 @@ import { createStructuredSelector } from 'reselect';
 import HomePage from '../../pages/Homepage/HomePage';
 import ShopPage from '../../pages/Shop/Shop';
 import SignInAndSignUp from '../../pages/SignInAndSignUp/SignInAndSignUp';
-import CheckoutPage from '../Checkout/Checkout';
+import CheckoutPage from '../../pages/Checkout/Checkout';
 
 import Header from '../Header/Header';
 
