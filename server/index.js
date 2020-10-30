@@ -2,26 +2,23 @@
 const express = require('express');
 const cors = require('cors');
 const bodyParser = require('body-parser');
-const morgan = require('morgan');
-const router = require('./routes.js');
+const path = require('path');
 
 const app = express();
-module.exports.app = app;
 
-app.set('port', 3333);
+const PORT = 3333;
 
 // middleware
-app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
-app.use(morgan('dev'));
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(express.static(path.join(__dirname, '../public')));
 app.use(cors());
 
-app.use(express.static('public'));
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, '../public/index.html'));
+});
 
-app.use('/', router);
-
-// If we are being run directly, run the server.
-if (!module.parent) {
-  app.listen(app.get('port'));
-  console.log('Listening on', app.get('port'));
-}
+app.listen(PORT, () => {
+  // eslint-disable-next-line no-console
+  console.log(`Example app listening at http://localhost:${PORT}`);
+});
