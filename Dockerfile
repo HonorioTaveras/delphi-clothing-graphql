@@ -17,4 +17,4 @@ RUN npm install
 EXPOSE 3333
 
 # How do you start your app?
-CMD [ "npm", "run", "start" ]
+CMD [ "npm", "run", "server" ]
