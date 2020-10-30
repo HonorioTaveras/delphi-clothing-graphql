@@ -14,7 +14,7 @@ COPY . /delphiClothing
 RUN npm install
 
 # What port will the container talk to the outside world with once created?
-EXPOSE 3456
+EXPOSE 3333
 
 # How do you start your app?
 CMD [ "npm", "run", "start" ]
