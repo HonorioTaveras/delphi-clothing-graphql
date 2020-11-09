@@ -1,6 +1,4 @@
 /* eslint-disable no-shadow */
-/* eslint-disable jsx-a11y/click-events-have-key-events */
-/* eslint-disable jsx-a11y/no-static-element-interactions */
 import React from 'react';
 import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
@@ -12,11 +10,13 @@ import ShoppingIcon from '../../assets/shopping-bag.svg';
 
 import './CartIcon.scss';
 
+import { CartIconContainer, ShoppingIconContainer, ItemCountContainer } from './CartIcon.styles';
+
 const CartIcon = ({ toggleCartHidden, itemCount }) => (
-  <div className="cart-icon" onClick={toggleCartHidden}>
-    <img className="shopping-icon" src={`/${ShoppingIcon}`} alt="Shopping Icon" />
-    <span className="item-count">{itemCount}</span>
-  </div>
+  <CartIconContainer onClick={toggleCartHidden}>
+    <ShoppingIconContainer src={`/${ShoppingIcon}`} alt="Shopping Icon" />
+    <ItemCountContainer className="item-count">{itemCount}</ItemCountContainer>
+  </CartIconContainer>
 );
 
 const mapDispatchToProps = (dispatch) => ({
