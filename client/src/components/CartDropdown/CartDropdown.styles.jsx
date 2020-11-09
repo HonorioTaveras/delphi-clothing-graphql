@@ -19,7 +19,7 @@ export const CartDropdownButton = styled(CustomButton)`
   margin-top: auto;
 `;
 
-export const CartItems = styled.div`
+export const CartItemsContainer = styled.div`
   height: 240px;
   display: flex;
   flex-direction: column;
@@ -30,7 +30,7 @@ export const CartItems = styled.div`
   }
 `;
 
-export const EmptyMessages = styled.span`
+export const EmptyMessagesContainer = styled.span`
   font-size: 18px;
   margin: 50px auto;
 `;
