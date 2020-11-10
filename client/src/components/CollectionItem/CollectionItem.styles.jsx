@@ -18,6 +18,7 @@ export const CollectionItemContainer = styled.div`
       opacity: 0.85;
       display: flex;
     }
+  }
 `;
 
 export const AddButton = styled(CustomButton)`
