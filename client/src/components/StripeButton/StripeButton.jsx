@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 /* eslint-disable no-alert */
 import React from 'react';
 import StripeCheckout from 'react-stripe-checkout';
