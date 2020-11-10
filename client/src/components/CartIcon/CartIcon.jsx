@@ -8,8 +8,6 @@ import { selectCartItemsCount } from '../../redux/cart/cartSelectors';
 
 import ShoppingIcon from '../../assets/shopping-bag.svg';
 
-// import './CartIcon.scss';
-
 import { CartIconContainer, ShoppingIconContainer, ItemCountContainer } from './CartIcon.styles';
 
 const CartIcon = ({ toggleCartHidden, itemCount }) => (

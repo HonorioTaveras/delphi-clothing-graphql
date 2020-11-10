@@ -7,8 +7,6 @@ import CartItem from '../CartItem/CartItem';
 import { selectCartItems } from '../../redux/cart/cartSelectors';
 import { toggleCartHidden } from '../../redux/cart/cartActions';
 
-// import './CartDropdown.scss';
-
 import {
   CartDropdownContainer, CartItemsContainer, EmptyMessagesContainer, CartDropdownButton,
 } from './CartDropdown.styles';
