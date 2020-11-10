@@ -1,8 +1,6 @@
 /* eslint-disable react/button-has-type */
 import React from 'react';
 
-import './CustomButton.scss';
-
 import CustomButtonContainer from './CustomButton.styles';
 
 const CustomButton = ({ children, ...props }) => (

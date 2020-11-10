@@ -1,5 +1,6 @@
 /* eslint-disable react/jsx-props-no-spreading */
 import React from 'react';
+import { withRouter } from 'react-router-dom';
 
 import CollectionItem from '../CollectionItem/CollectionItem';
 
@@ -9,9 +10,13 @@ import {
   PreviewContainer,
 } from './CollectionPreview.styles';
 
-const CollectionPreview = ({ title, items }) => (
+const CollectionPreview = ({
+  title, items, history, match, routeName,
+}) => (
   <CollectionPreviewContainer>
-    <TitleHeader>{title.toUpperCase()}</TitleHeader>
+    <TitleHeader onClick={() => history.push(`${match.path}/${routeName}`)}>
+      {title.toUpperCase()}
+    </TitleHeader>
     <PreviewContainer>
       {items
         .filter((item, idx) => idx < 4)
@@ -22,4 +27,4 @@ const CollectionPreview = ({ title, items }) => (
   </CollectionPreviewContainer>
 );
 
-export default CollectionPreview;
+export default withRouter(CollectionPreview);
