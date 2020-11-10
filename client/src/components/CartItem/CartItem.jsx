@@ -1,6 +1,6 @@
 import React from 'react';
 
-import './CartItem.scss';
+// import './CartItem.scss';
 
 import {
   CartItemContainer,
