@@ -18,8 +18,6 @@ import {
   HeaderContainer, LogoContainer, OptionsContainer, OptionLink,
 } from './Header.styles';
 
-import './Header.scss';
-
 const Header = ({ currentUser, hidden }) => (
   <HeaderContainer>
     <LogoContainer to="/">
