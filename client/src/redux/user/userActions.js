@@ -1,4 +1,3 @@
-/* eslint-disable import/prefer-default-export */
 import { UserActionTypes } from './userTypes';
 
 export const setCurrentUser = (user) => ({

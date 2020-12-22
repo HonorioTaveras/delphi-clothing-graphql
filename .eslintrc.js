@@ -23,6 +23,7 @@ module.exports = {
     'react/prop-types': 'off',
     'no-use-before-define': ['off', 'nofunc'],
     'no-console': 'off',
+    'import/prefer-default-export': 'off',
     'no-restricted-syntax': [
       'error',
       {
