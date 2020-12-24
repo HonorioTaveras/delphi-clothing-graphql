@@ -13,7 +13,16 @@ import {
 
 import { updateCollections } from '../../redux/shop/shopActions';
 
+import WithSpinner from '../../components/WithSpinner/WithSpinner';
+
+const CollectionsOverviewWithSpinner = WithSpinner(CollectionsOverview);
+const CollectionPageWithSpinner = WithSpinner(CollectionPage);
+
 class ShopPage extends Component {
+  state = {
+    loading: true,
+  };
+
   unsubscribeFromSnapshot = null;
 
   componentDidMount() {
@@ -24,6 +33,7 @@ class ShopPage extends Component {
       async (snapshot) => {
         const collectionsMap = convertCollectionsSnapshotToMap(snapshot);
         updateCollections(collectionsMap);
+        this.setState({ loading: false });
       },
     );
   }
