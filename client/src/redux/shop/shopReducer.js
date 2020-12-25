@@ -2,6 +2,7 @@ import ShopActionTypes from './shopTypes';
 
 const INITIAL_STATE = {
   collections: null,
+  isFetching: false,
 };
 
 const shopReducer = (state = INITIAL_STATE, action) => {
