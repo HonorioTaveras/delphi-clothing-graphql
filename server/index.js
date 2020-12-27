@@ -8,7 +8,7 @@ const router = require('./routes.js');
 const app = express();
 module.exports.app = app;
 
-app.set('port', 3333);
+app.set('port', process.env.PORT || 3333);
 
 // middleware
 app.use(bodyParser.urlencoded({ extended: false }));
