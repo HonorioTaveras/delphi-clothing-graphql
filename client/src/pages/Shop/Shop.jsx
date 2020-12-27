@@ -5,7 +5,10 @@ import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
 
 import { fetchCollectionsStartAsync } from '../../redux/shop/shopActions';
-import { selectIsCollectionFetching, selectIsCollectionLoaded } from '../../redux/shop/shopSelector';
+import {
+  selectIsCollectionFetching,
+  selectIsCollectionLoaded,
+} from '../../redux/shop/shopSelector';
 
 import WithSpinner from '../../components/WithSpinner/WithSpinner';
 
