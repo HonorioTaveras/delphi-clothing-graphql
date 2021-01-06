@@ -1,4 +1,3 @@
-import { yield } from 'fibers';
 import { takeEvery } from 'redux-saga/effects';
 
 import ShopActionTypes from './shopTypes';
