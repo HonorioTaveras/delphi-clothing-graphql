@@ -1,14 +1,16 @@
-/* eslint-disable jsx-a11y/label-has-associated-control */
+/* eslint-disable no-shadow */
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 
 import FormInput from '../FormInput/FormInput';
 import CustomButton from '../CustomButton/CustomButton';
 
 import { auth, signInWithGoogle } from '../../firebase/firebase.utils';
+import { googleSignInStart } from '../../redux/user/userActions';
 
 import { SignInContainer, SignInTitle, SignInButtons } from './SignIn.styles';
 
-export default class SignIn extends Component {
+class SignIn extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -41,6 +43,7 @@ export default class SignIn extends Component {
   };
 
   render() {
+    const { googleSignInStart } = this.props;
     const { email, password } = this.state;
     return (
       <SignInContainer>
@@ -66,7 +69,11 @@ export default class SignIn extends Component {
           />
           <SignInButtons>
             <CustomButton type="submit"> Sign in </CustomButton>
-            <CustomButton type="button" onClick={signInWithGoogle} isGoogleSignIn>
+            <CustomButton
+              type="button"
+              onClick={googleSignInStart}
+              isGoogleSignIn
+            >
               Sign in with Google
             </CustomButton>
           </SignInButtons>
@@ -75,3 +82,9 @@ export default class SignIn extends Component {
     );
   }
 }
+
+const mapDispatchToProps = (dispatch) => ({
+  googleSignInStart: () => dispatch(googleSignInStart()),
+});
+
+export default connect(null, mapDispatchToProps)(SignIn);
