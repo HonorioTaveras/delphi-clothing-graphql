@@ -35,7 +35,7 @@ export function* onGoogleSignInStart() {
 
 export function* signInWithEmail({ payload: { email, password } }) {
   try {
-    const { user } = yield actionChannel.signInWithEmailAndPassword(email, password);
+    const { user } = yield auth.signInWithEmailAndPassword(email, password);
     const userRef = yield call(createUserProfileDocument, user);
     const userSnapShot = yield userRef.get();
     yield put(
