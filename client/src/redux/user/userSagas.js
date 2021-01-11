@@ -1,5 +1,5 @@
 import {
-  takeLatest, put, all, call,
+  takeLatest, put, all, call, actionChannel,
 } from 'redux-saga/effects';
 
 import UserActionTypes from './userTypes';
@@ -9,7 +9,12 @@ import {
   googleProvider,
   createUserProfileDocument,
 } from '../../firebase/firebase.utils';
-import { googleSignInFailure, googleSignInSuccess } from './userActions';
+import {
+  googleSignInFailure,
+  googleSignInSuccess,
+  emailSignInSuccess,
+  emailSignInFailure,
+} from './userActions';
 
 export function* signInWithGoogle() {
   try {
@@ -28,6 +33,23 @@ export function* onGoogleSignInStart() {
   yield takeLatest(UserActionTypes.GOOGLE_SIGN_IN_START, signInWithGoogle);
 }
 
+export function* signInWithEmail({ pqyload: { email, password } }) {
+  try {
+    const { user } = yield actionChannel.signInWithEmailAndPassword(email, password);
+    const userRef = yield call(createUserProfileDocument, user);
+    const userSnapShot = yield userRef.get();
+    yield put(
+      emailSignInSuccess({ id: userSnapShot.id, ...userSnapShot.data() }),
+    );
+  } catch (error) {
+    put(emailSignInFailure(error));
+  }
+}
+
+export function* onEmailSignInStart() {
+  yield takeLatest(UserActionTypes.EMAIL_SIGN_IN_START, signInWithEmail);
+}
+
 export function* userSagas() {
-  yield all([call(onGoogleSignInStart)]);
+  yield all([call(onGoogleSignInStart), call(onEmailSignInStart)]);
 }
