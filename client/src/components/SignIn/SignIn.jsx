@@ -40,17 +40,19 @@ class SignIn extends Component {
   render() {
     const { googleSignInStart } = this.props;
     const { email, password } = this.state;
+    const { handleSubmit, handleChange } = this;
+
     return (
       <SignInContainer>
         <SignInTitle>I already have an account</SignInTitle>
         <span>Sign in with your email and password</span>
 
-        <form onSubmit={this.handleSubmit}>
+        <form onSubmit={handleSubmit}>
           <FormInput
             name="email"
             type="email"
             value={email}
-            handleChange={this.handleChange}
+            handleChange={handleChange}
             label="email"
             required
           />
@@ -58,7 +60,7 @@ class SignIn extends Component {
             name="password"
             type="password"
             value={password}
-            handleChange={this.handleChange}
+            handleChange={handleChange}
             label="password"
             required
           />

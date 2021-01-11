@@ -33,7 +33,7 @@ export function* onGoogleSignInStart() {
   yield takeLatest(UserActionTypes.GOOGLE_SIGN_IN_START, signInWithGoogle);
 }
 
-export function* signInWithEmail({ pqyload: { email, password } }) {
+export function* signInWithEmail({ payload: { email, password } }) {
   try {
     const { user } = yield actionChannel.signInWithEmailAndPassword(email, password);
     const userRef = yield call(createUserProfileDocument, user);
