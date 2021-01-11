@@ -1,5 +1,5 @@
 import {
-  takeLatest, put, all, call, actionChannel,
+  takeLatest, put, all, call,
 } from 'redux-saga/effects';
 
 import UserActionTypes from './userTypes';
@@ -10,10 +10,8 @@ import {
   createUserProfileDocument,
 } from '../../firebase/firebase.utils';
 import {
-  googleSignInFailure,
-  googleSignInSuccess,
-  emailSignInSuccess,
-  emailSignInFailure,
+  signInSuccess,
+  signInFailure,
 } from './userActions';
 
 export function* signInWithGoogle() {
@@ -22,10 +20,10 @@ export function* signInWithGoogle() {
     const userRef = yield call(createUserProfileDocument, user);
     const userSnapShot = yield userRef.get();
     yield put(
-      googleSignInSuccess({ id: userSnapShot.id, ...userSnapShot.data() }),
+      signInSuccess({ id: userSnapShot.id, ...userSnapShot.data() }),
     );
   } catch (error) {
-    yield put(googleSignInFailure(error));
+    yield put(signInFailure(error));
   }
 }
 
@@ -39,10 +37,10 @@ export function* signInWithEmail({ payload: { email, password } }) {
     const userRef = yield call(createUserProfileDocument, user);
     const userSnapShot = yield userRef.get();
     yield put(
-      emailSignInSuccess({ id: userSnapShot.id, ...userSnapShot.data() }),
+      signInSuccess({ id: userSnapShot.id, ...userSnapShot.data() }),
     );
   } catch (error) {
-    put(emailSignInFailure(error));
+    put(signInFailure(error));
   }
 }
 

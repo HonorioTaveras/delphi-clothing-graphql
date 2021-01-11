@@ -15,6 +15,7 @@ import { SignInContainer, SignInTitle, SignInButtons } from './SignIn.styles';
 class SignIn extends Component {
   constructor(props) {
     super(props);
+
     this.state = {
       email: '',
       password: '',
@@ -32,6 +33,7 @@ class SignIn extends Component {
 
   handleChange = (e) => {
     const { value, name } = e.target;
+
     this.setState({
       [name]: value,
     });
