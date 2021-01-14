@@ -28,7 +28,12 @@ class SignUp extends Component {
       displayName, email, password, confirmPassword,
     } = this.state;
 
-    signUpStart(displayName, email, password, confirmPassword);
+    if (password !== confirmPassword) {
+      alert("passwords don't match");
+      return;
+    }
+
+    signUpStart(displayName, email, password);
   };
 
   handleChange = (e) => {
@@ -88,8 +93,8 @@ class SignUp extends Component {
 }
 
 const mapDispatchToProps = (dispatch) => ({
-  signUpStart: (displayName, email, password, confirmPassword) =>
-    dispatch(signUpStart(displayName, email, password, confirmPassword)),
+  signUpStart: (displayName, email, password) =>
+    dispatch(signUpStart(displayName, email, password)),
 });
 
 export default connect(null, mapDispatchToProps)(SignUp);
