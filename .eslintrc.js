@@ -19,6 +19,7 @@ module.exports = {
   },
   plugins: ['react'],
   rules: {
+    'global-require': 'off',
     'no-shadow': 'off',
     'react/state-in-constructor': 'off',
     'react/jsx-props-no-spreading': 'off',

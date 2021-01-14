@@ -1,4 +1,3 @@
-/* eslint-disable global-require */
 const path = require('path');
 
 const DIST_DIR = path.resolve(__dirname, 'public');
@@ -28,7 +27,6 @@ module.exports = {
           {
             loader: 'sass-loader',
             options: {
-              // Prefer `dart-sass`
               implementation: require('sass'),
             },
           },
