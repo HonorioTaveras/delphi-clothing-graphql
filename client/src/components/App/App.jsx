@@ -1,4 +1,3 @@
-/* eslint-disable no-shadow */
 import React, { Component } from 'react';
 import {
   BrowserRouter as Router,
@@ -62,6 +61,6 @@ const mapStateToProps = createStructuredSelector({
 
 const mapDispatchToProps = (dispatch) => ({
   checkUserSession: () => dispatch(checkUserSession()),
-})
+});
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);
