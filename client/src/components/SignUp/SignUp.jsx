@@ -1,14 +1,15 @@
-/* eslint-disable no-alert */
+/* eslint-disable implicit-arrow-linebreak */
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 
 import FormInput from '../FormInput/FormInput';
 import CustomButton from '../CustomButton/CustomButton';
 
-import { auth, createUserProfileDocument } from '../../firebase/firebase.utils';
+import { signUpStart } from '../../redux/user/userActions';
 
 import { SignUpContainer, SignUpTitle } from './SignUp.styles';
 
-export default class SignUp extends Component {
+class SignUp extends Component {
   constructor() {
     super();
     this.state = {
@@ -21,31 +22,13 @@ export default class SignUp extends Component {
 
   handleSubmit = async (e) => {
     e.preventDefault();
+
+    const { signUpStart } = this.props;
     const {
       displayName, email, password, confirmPassword,
     } = this.state;
-    if (password !== confirmPassword) {
-      alert("passwords don't match");
-      return;
-    }
 
-    try {
-      const { user } = await auth.createUserWithEmailAndPassword(
-        email,
-        password,
-      );
-
-      await createUserProfileDocument(user, { displayName });
-
-      this.setState({
-        displayName: '',
-        email: '',
-        password: '',
-        confirmPassword: '',
-      });
-    } catch (err) {
-      console.error(err);
-    }
+    signUpStart(displayName, email, password, confirmPassword);
   };
 
   handleChange = (e) => {
@@ -58,6 +41,8 @@ export default class SignUp extends Component {
     const {
       displayName, email, password, confirmPassword,
     } = this.state;
+    const { handleChange } = this;
+
     return (
       <SignUpContainer>
         <SignUpTitle>I do not have an account</SignUpTitle>
@@ -67,7 +52,7 @@ export default class SignUp extends Component {
             type="text"
             name="displayName"
             value={displayName}
-            onChange={this.handleChange}
+            onChange={handleChange}
             label="Display Name"
             required
           />
@@ -75,7 +60,7 @@ export default class SignUp extends Component {
             type="email"
             name="email"
             value={email}
-            onChange={this.handleChange}
+            onChange={handleChange}
             label="Email"
             required
           />
@@ -83,7 +68,7 @@ export default class SignUp extends Component {
             type="password"
             name="password"
             value={password}
-            onChange={this.handleChange}
+            onChange={handleChange}
             label="Password"
             required
           />
@@ -101,3 +86,10 @@ export default class SignUp extends Component {
     );
   }
 }
+
+const mapDispatchToProps = (dispatch) => ({
+  signUpStart: (displayName, email, password, confirmPassword) =>
+    dispatch(signUpStart(displayName, email, password, confirmPassword)),
+});
+
+export default connect(null, mapDispatchToProps)(SignUp);
