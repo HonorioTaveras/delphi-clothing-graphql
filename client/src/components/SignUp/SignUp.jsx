@@ -1,4 +1,3 @@
-/* eslint-disable implicit-arrow-linebreak */
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
@@ -33,7 +32,7 @@ class SignUp extends Component {
       return;
     }
 
-    signUpStart(displayName, email, password);
+    signUpStart({ email, password, displayName });
   };
 
   handleChange = (e) => {
@@ -93,8 +92,7 @@ class SignUp extends Component {
 }
 
 const mapDispatchToProps = (dispatch) => ({
-  signUpStart: (displayName, email, password) =>
-    dispatch(signUpStart(displayName, email, password)),
+  signUpStart: (userCredentials) => dispatch(signUpStart(userCredentials)),
 });
 
 export default connect(null, mapDispatchToProps)(SignUp);
