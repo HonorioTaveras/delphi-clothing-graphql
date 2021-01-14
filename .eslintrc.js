@@ -19,6 +19,7 @@ module.exports = {
   },
   plugins: ['react'],
   rules: {
+    'no-alert': 'off',
     'global-require': 'off',
     'no-shadow': 'off',
     'react/state-in-constructor': 'off',
