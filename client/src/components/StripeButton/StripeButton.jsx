@@ -1,14 +1,25 @@
-/* eslint-disable no-unused-vars */
-/* eslint-disable no-alert */
 import React from 'react';
 import StripeCheckout from 'react-stripe-checkout';
+import axios from 'axios';
 
 const StripeCheckoutButton = ({ price }) => {
   const priceForStripe = price * 100;
   const publishableKey = 'pk_test_51HhNqLCi2n9KIkI8OfJxGI6zQrgOeKHocSPn2d1XUEpTp1sCYtkHrKcqqq9CnAJ9ryqSwQQg4AbxoewD9EHsL8CC00OLLmJjur';
 
   const onToken = (token) => {
-    alert('Payment Successful');
+    axios('/payment', {
+      amount: priceForStripe,
+      token,
+    })
+      .then((res) => {
+        alert('Payment successful');
+      })
+      .catch((error) => {
+        alert(
+          'There was an issue with your payment. Please be sure to use the provided credit card.',
+        );
+        console.log('Payment error: ', JSON.parse(error));
+      });
   };
 
   return (
