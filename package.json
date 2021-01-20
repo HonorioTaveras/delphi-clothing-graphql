@@ -26,6 +26,7 @@
   },
   "homepage": "https://github.com/HonorioTaveras/delphi-clothing#readme",
   "dependencies": {
+    "axios": "^0.21.1",
     "babel-plugin-transform-class-properties": "^6.24.1",
     "body-parser": "^1.19.0",
     "cors": "^2.8.5",
