@@ -10,7 +10,7 @@ router.post('/payment', (req, res) => {
   const body = {
     source: req.body.token.id,
     amount: req.body.amount,
-    currenct: 'usd',
+    currency: 'usd',
   };
 
   stripe.charges.create(body, (stripeErr, stripeRes) => {
