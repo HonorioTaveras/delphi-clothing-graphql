@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import React from 'react';
 import StripeCheckout from 'react-stripe-checkout';
 import axios from 'axios';
@@ -11,7 +12,7 @@ const StripeCheckoutButton = ({ price }) => {
       amount: priceForStripe,
       token,
     })
-      .then((res) => {
+      .then((response) => {
         alert('Payment successful');
       })
       .catch((error) => {
