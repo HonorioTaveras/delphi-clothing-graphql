@@ -20,15 +20,15 @@ import CurrentUserContext from '../../contexts/currentUser/currentUser';
 import './App.scss';
 
 class App extends Component {
+  unsubscribeFromAuth = null;
+
   constructor() {
     super();
 
     this.state = {
       currentUser: null,
-    }
+    };
   }
-
-  unsubscribeFromAuth = null;
 
   componentDidMount() {
     this.unsubscribeFromAuth = auth.onAuthStateChanged(async (userAuth) => {
@@ -44,7 +44,7 @@ class App extends Component {
           });
         });
       }
-      this.setState({currentUser: userAuth});
+      this.setState({ currentUser: userAuth });
     });
   }
 
@@ -61,15 +61,13 @@ class App extends Component {
             <Header />
           </CurrentUserContext.Provider>
           <Switch>
-            <Route exact path='/' component={HomePage} />
-            <Route path='/shop' component={ShopPage} />
-            <Route exact path='/checkout' component={CheckoutPage} />
+            <Route exact path="/" component={HomePage} />
+            <Route path="/shop" component={ShopPage} />
+            <Route exact path="/checkout" component={CheckoutPage} />
             <Route
               exact
-              path='/signin'
-              render={() =>
-                currentUser ? <Redirect to='/' /> : <SignInAndSignUp />
-              }
+              path="/signin"
+              render={() => (currentUser ? <Redirect to="/" /> : <SignInAndSignUp />)}
             />
           </Switch>
         </div>
