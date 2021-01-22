@@ -15,7 +15,7 @@ import Header from '../Header/Header';
 
 import { auth, createUserProfileDocument } from '../../firebase/firebase.utils';
 
-import CurrentUserContext from '../../contexts/currentUser/currentUser';
+import CurrentUserContext from '../../contexts/currentUser/CurrentUser';
 
 import './App.scss';
 

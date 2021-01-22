@@ -13,19 +13,19 @@ import ShoppingIcon from '../../assets/shopping-bag.svg';
 
 import './CartIcon.scss';
 
-const CartIcon = ({ toggleCartHidden, itemCount }) => (
-  <div className="cart-icon" onClick={toggleCartHidden}>
-    <img className="shopping-icon" src={`/${ShoppingIcon}`} alt="Shopping Icon" />
-    <span className="item-count">{itemCount}</span>
-  </div>
-);
+const CartIcon = ({ itemCount }) => {
+  const { toggleHidden } = useContext(CartContext);
 
-const mapDispatchToProps = (dispatch) => ({
-  toggleCartHidden: () => dispatch(toggleCartHidden()),
-});
+  return (
+    <div className="cart-icon" onClick={toggleHidden}>
+      <img className="shopping-icon" src={`/${ShoppingIcon}`} alt="Shopping Icon" />
+      <span className="item-count">{itemCount}</span>
+    </div>
+  );
+};
 
 const mapStateToProps = createStructuredSelector({
   itemCount: selectCartItemsCount,
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(CartIcon);
+export default connect(mapStateToProps)(CartIcon);
