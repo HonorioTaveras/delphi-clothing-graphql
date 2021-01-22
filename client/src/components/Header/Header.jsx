@@ -10,7 +10,7 @@ import CartIcon from '../CartIcon/CartIcon';
 import CartDropdown from '../CartDropdown/CartDropdown';
 import { selectCartHidden } from '../../redux/cart/cartSelectors';
 import CurrentUserContext from '../../contexts/currentUser/CurrentUser';
-import CartContext from '../../contexts/cart/CartContext';
+import { CartContext } from '../../providers/cart/CartProvder';
 
 import Logo from '../../assets/crown.svg';
 
@@ -18,6 +18,7 @@ import './Header.scss';
 
 const Header = () => {
   const currentUser = useContext(CurrentUserContext);
+  const { hidden } = useContext(CartContext);
 
   return (
     <div className="header">
@@ -40,13 +41,7 @@ const Header = () => {
             SIGN IN
           </Link>
         )}
-        <CartContext.Provider value={{
-          hidden,
-          toggleHidden,
-        }}
-        >
-          <CartIcon />
-        </CartContext.Provider>
+        <CartIcon />
       </div>
       {hidden ? null : <CartDropdown />}
     </div>
