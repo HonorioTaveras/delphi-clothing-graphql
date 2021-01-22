@@ -10,7 +10,7 @@ import { auth } from '../../firebase/firebase.utils';
 import CartIcon from '../CartIcon/CartIcon';
 import CartDropdown from '../CartDropdown/CartDropdown';
 import { selectCartHidden } from '../../redux/cart/cartSelectors';
-import CurrentUserContext from '../../contexts/currentUser/currentUser';
+import CurrentUserContext from '../../contexts/currentUser/CurrentUser';
 
 import Logo from '../../assets/crown.svg';
 
