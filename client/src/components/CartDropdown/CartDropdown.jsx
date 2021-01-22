@@ -3,13 +3,12 @@ import { withRouter } from 'react-router-dom';
 
 import CustomButton from '../CustomButton/CustomButton';
 import CartItem from '../CartItem/CartItem';
-import { toggleCartHidden } from '../../redux/cart/cartActions';
 import { CartContext } from '../../providers/cart/CartProvder';
 
 import './CartDropdown.scss';
 
-const CartDropdown = ({ history, dispatch }) => {
-  const { cartItems } = useContext(CartContext);
+const CartDropdown = ({ history }) => {
+  const { cartItems, toggleHidden } = useContext(CartContext);
 
   return (
     <div className="cart-dropdown">
@@ -25,7 +24,7 @@ const CartDropdown = ({ history, dispatch }) => {
       <CustomButton
         onClick={() => {
           history.push('/checkout');
-          dispatch(toggleCartHidden());
+          toggleHidden();
         }}
       >
         GO TO CHECKOUT
