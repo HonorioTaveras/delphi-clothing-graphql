@@ -4,6 +4,7 @@ import {
   addItemToCart,
   removeItemFromCart,
   filterItemFromCart,
+  getCartItemsCount,
 } from './cartUtils';
 
 export const CartContext = createContext({
@@ -25,6 +26,10 @@ const CartProvider = ({ children }) => {
   const removeItem = (item) => setCartItems(removeItemFromCart(cartItems, item));
   const toggleHidden = () => setHidden(!hidden);
   const clearItemFromCart = (item) => setCartItems(filterItemFromCart(cartItems, item));
+
+  useEffect(() => {
+    setCartItemsCount(getCartItemsCount(cartItems));
+  }, [cartItems]);
 
   return (
     <CartContext.Provider
