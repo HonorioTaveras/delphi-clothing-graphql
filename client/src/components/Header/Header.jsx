@@ -1,7 +1,6 @@
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 /* eslint-disable jsx-a11y/no-static-element-interactions */
-/* eslint-disable no-unused-vars */
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { BrowserRouter as Router, Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
@@ -11,13 +10,16 @@ import CartIcon from '../CartIcon/CartIcon';
 import CartDropdown from '../CartDropdown/CartDropdown';
 import { selectCartHidden } from '../../redux/cart/cartSelectors';
 import CurrentUserContext from '../../contexts/currentUser/CurrentUser';
+import CartContext from '../../contexts/cart/CartContext';
 
 import Logo from '../../assets/crown.svg';
 
 import './Header.scss';
 
-const Header = ({ hidden }) => {
+const Header = () => {
   const currentUser = useContext(CurrentUserContext);
+  const [hidden, setHidden] = useState(true);
+  const toggleHidden = () => setHidden(!hidden);
 
   return (
     <div className="header">
@@ -40,7 +42,13 @@ const Header = ({ hidden }) => {
             SIGN IN
           </Link>
         )}
-        <CartIcon />
+        <CartContext.Provider value={{
+          hidden,
+          toggleHidden,
+        }}
+        >
+          <CartIcon />
+        </CartContext.Provider>
       </div>
       {hidden ? null : <CartDropdown />}
     </div>
