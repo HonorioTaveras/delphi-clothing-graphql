@@ -5,9 +5,8 @@ import React, { useContext } from 'react';
 import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
 
-import { toggleCartHidden } from '../../redux/cart/cartActions';
 import { selectCartItemsCount } from '../../redux/cart/cartSelectors';
-import CartContext from '../../contexts/cart/CartContext';
+import { CartContext } from '../../providers/cart/CartProvder';
 
 import ShoppingIcon from '../../assets/shopping-bag.svg';
 
