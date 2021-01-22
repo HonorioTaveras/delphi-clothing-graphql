@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 
 import CustomButton from '../CustomButton/CustomButton';
-import { CartContext } from '../../providers/cart/CartProvder';
+import { CartContext } from '../../providers/cart/CartProvider';
 
 import './CollectionItem.scss';
 

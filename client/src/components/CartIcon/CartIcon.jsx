@@ -2,7 +2,7 @@
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 import React, { useContext } from 'react';
 
-import { CartContext } from '../../providers/cart/CartProvder';
+import { CartContext } from '../../providers/cart/CartProvider';
 
 import ShoppingIcon from '../../assets/shopping-bag.svg';
 

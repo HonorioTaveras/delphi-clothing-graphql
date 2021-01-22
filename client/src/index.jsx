@@ -4,7 +4,7 @@ import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import { PersistGate } from 'redux-persist/integration/react';
 import { store, persistor } from './redux/store';
-import CartProvider from './providers/cart/CartProvder';
+import CartProvider from './providers/cart/CartProvider';
 
 import App from './components/App/App';
 

@@ -1,6 +1,6 @@
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 /* eslint-disable jsx-a11y/no-static-element-interactions */
-import React, { useContext, useState } from 'react';
+import React, { useContext } from 'react';
 import { BrowserRouter as Router, Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
@@ -10,7 +10,7 @@ import CartIcon from '../CartIcon/CartIcon';
 import CartDropdown from '../CartDropdown/CartDropdown';
 import { selectCartHidden } from '../../redux/cart/cartSelectors';
 import CurrentUserContext from '../../contexts/currentUser/CurrentUser';
-import { CartContext } from '../../providers/cart/CartProvder';
+import { CartContext } from '../../providers/cart/CartProvider';
 
 import Logo from '../../assets/crown.svg';
 

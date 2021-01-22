@@ -3,7 +3,7 @@ import { withRouter } from 'react-router-dom';
 
 import CustomButton from '../CustomButton/CustomButton';
 import CartItem from '../CartItem/CartItem';
-import { CartContext } from '../../providers/cart/CartProvder';
+import { CartContext } from '../../providers/cart/CartProvider';
 
 import './CartDropdown.scss';
 
