@@ -2,13 +2,10 @@
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 import React, { useContext } from 'react';
 import { BrowserRouter as Router, Link } from 'react-router-dom';
-import { connect } from 'react-redux';
-import { createStructuredSelector } from 'reselect';
 
 import { auth } from '../../firebase/firebase.utils';
 import CartIcon from '../CartIcon/CartIcon';
 import CartDropdown from '../CartDropdown/CartDropdown';
-import { selectCartHidden } from '../../redux/cart/cartSelectors';
 import CurrentUserContext from '../../contexts/currentUser/CurrentUser';
 import { CartContext } from '../../providers/cart/CartProvider';
 
@@ -48,8 +45,4 @@ const Header = () => {
   );
 };
 
-const mapStateToProps = createStructuredSelector({
-  hidden: selectCartHidden,
-});
-
-export default connect(mapStateToProps)(Header);
+export default Header;
