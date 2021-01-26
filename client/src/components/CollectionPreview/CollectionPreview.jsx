@@ -1,19 +1,19 @@
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 /* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
-/* eslint-disable react/jsx-props-no-spreading */
 import React from 'react';
+import { withRouter } from 'react-router-dom';
 
 import CollectionItem from '../CollectionItem/CollectionItem';
 
 import './CollectionPreview.scss';
 
 const CollectionPreview = ({
-  title, items, history, match,
+  title, items, history, match, routeName,
 }) => (
   <div className="collection-preview">
     <h1
       className="title"
-      onClick={() => history.push(`${match.path}/${title.toLowerCase()}`)}
+      onClick={() => history.push(`${match.path}/${routeName}`)}
     >
       {title.toUpperCase()}
     </h1>
@@ -27,4 +27,4 @@ const CollectionPreview = ({
   </div>
 );
 
-export default CollectionPreview;
+export default withRouter(CollectionPreview);
