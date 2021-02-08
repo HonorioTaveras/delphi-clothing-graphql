@@ -19,6 +19,7 @@ module.exports = {
   },
   plugins: ['react'],
   rules: {
+    'import/no-named-default': 'off',
     'react/jsx-props-no-spreading': 'off',
     'react/prop-types': 'off',
     'no-use-before-define': ['off', 'nofunc'],

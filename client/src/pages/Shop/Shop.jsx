@@ -1,8 +1,7 @@
-/* eslint-disable react/jsx-props-no-spreading */
 import React from 'react';
 import { Route } from 'react-router-dom';
 
-import CollectionsOverview from '../../components/CollectionsOverview/CollectionsOverview';
+import { default as CollectionsOverview } from '../../components/CollectionsOverview/CollectionsOverviewContainer';
 import CollectionPage from '../Collection/Collection';
 
 const ShopPage = ({ match }) => (
