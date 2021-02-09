@@ -2,7 +2,7 @@ import React from 'react';
 import { Route } from 'react-router-dom';
 
 import { default as CollectionsOverview } from '../../components/CollectionsOverview/CollectionsOverviewContainer';
-import CollectionPage from '../Collection/Collection';
+import { default as CollectionPage } from '../Collection/CollectionContainer';
 
 const ShopPage = ({ match }) => (
   <div className="shop-page">
@@ -10,5 +10,4 @@ const ShopPage = ({ match }) => (
     <Route path={`${match.path}/:collectionId`} component={CollectionPage} />
   </div>
 );
-
 export default ShopPage;
